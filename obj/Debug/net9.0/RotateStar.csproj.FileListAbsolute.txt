@@ -27,3 +27,4 @@
 /home/mike2k/Documents/CsharpoGL_v0.0001/obj/Debug/net9.0/RotateStar.pdb
 /home/mike2k/Documents/CsharpoGL_v0.0001/obj/Debug/net9.0/RotateStar.genruntimeconfig.cache
 /home/mike2k/Documents/CsharpoGL_v0.0001/obj/Debug/net9.0/ref/RotateStar.dll
+/home/mike2k/Documents/CsharpoGL_v0.0001/obj/Debug/net9.0/RotateStar.sourcelink.json
