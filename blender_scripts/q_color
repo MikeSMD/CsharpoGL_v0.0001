@@ -1,0 +1,47 @@
+import bpy
+import bmesh
+
+# Function to print vertex coordinates and colors
+def print_vertices_with_colors(obj):
+    # Ensure the object is triangulated
+    bpy.ops.object.select_all(action='DESELECT')
+    obj.select_set(True)
+    bpy.context.view_layer.objects.active = obj
+    
+    # Switch to Edit Mode and triangulate
+    bpy.ops.object.mode_set(mode='EDIT')
+    bm = bmesh.from_edit_mesh(obj.data)
+    bmesh.ops.triangulate(bm, faces=bm.faces[:])
+    bmesh.update_edit_mesh(obj.data)
+    bpy.ops.object.mode_set(mode='OBJECT')
+    
+    # Check for vertex color layer
+    vertex_colors = obj.data.vertex_colors.active
+    if not vertex_colors:
+        print("No vertex color data available for this mesh!")
+        vertex_color_data = None
+    else:
+        vertex_color_data = vertex_colors.data
+    
+    # Iterate through all polygons (now triangles)
+    for poly in obj.data.polygons:
+        # For each triangle, print its vertices' coordinates and colors
+        for loop_idx in poly.loop_indices:
+            vert_idx = obj.data.loops[loop_idx].vertex_index
+            vert = obj.data.vertices[vert_idx].co  # Local coordinates
+            # Get vertex color if available
+            if vertex_color_data:
+                color = vertex_color_data[loop_idx].color
+                color_str = f"{color[0]:.3f},{color[1]:.3f},{color[2]:.3f},{color[3]:.3f}"  # RGBA
+            else:
+                color_str = "NoColor"
+            # Format: x,y,z,r,g,b,a
+            print(f"{vert.x:.3f},{vert.y:.3f},{vert.z:.3f},{color_str}")
+
+# Select active object
+obj = bpy.context.active_object
+if not obj or obj.type != 'MESH':
+    raise ValueError("Please select a mesh object!")
+
+# Run the function
+print_vertices_with_colors(obj)
