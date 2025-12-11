@@ -38,7 +38,6 @@ namespace Star
 			return (0.0, 0.0, double.PositiveInfinity);
 		}
 		*/
-		
 		public (double x, double y, double depth ) SimpleViewMatrixProjectPoint( Point p ) 
 		{
 			// pokud použijeme view matrix. Po její aplikaci je vše natočeno na kameru tak, že kamera je v 0,0,0 a v klasické viewmatrix je natořena na -z (ty co jsou -z jsou před kamerou) a y je nahoru a x je doprava či doleva

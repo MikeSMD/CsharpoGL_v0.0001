@@ -40,8 +40,9 @@ namespace Star
 			//
 		}
 
+            
 
-		public void RenderScene( List < Renderable > render_obects )
+		public void RenderScene (List < Renderable > render_obects )
 		{
 
 			(char sign, double depth, ConsoleColor cc)[][] grid = Enumerable.Range(0, _heighr).Select(_ => Enumerable.Repeat((' ', double.PositiveInfinity,ConsoleColor.White ), _width).ToArray()).ToArray();
@@ -75,7 +76,7 @@ namespace Star
 					if ( primitive == PrimitiveType.PT_Triangle )
 					{
 			
-						triangles.Add( ( newpoints.x, newpoints.y * 0.5, newpoints.depth, r.points[ i ].sign, r.points[ i ].cc ) );
+						triangles.Add( ( newpoints.x, newpoints.y * 1/2, newpoints.depth, r.points[ i ].sign, r.points[ i ].cc ) );
 						if ( triangles.Count == 3 )
 						{
 							

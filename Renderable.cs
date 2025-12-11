@@ -31,7 +31,7 @@ namespace Star
 			this.cc = cc;
 		}
 
-		public void GetTriangulated( )
+		public virtual void GetTriangulated( )
 		{
 			this.points = DataMiner.getData($"data/{this.GetType().Name}.txt", sign, cc ).ToArray();
 		}

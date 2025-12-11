@@ -8,6 +8,39 @@ namespace Star
 		{
 			//
 		}
+/*
+        public override void GetTriangulated() 
+        {
+            List< Point > points_list = new List< Point > ();
+
+            Point p = new Point ( 3, sign, cc );
+        
+            Point p2 = new Point ( 3, sign, cc );
+            Point p3 = new Point ( 3, sign, cc );
+            Point p21 = new Point ( 3, sign, cc );
+            Point p22 = new Point ( 3, sign, cc );
+            p2 [ 0 ] = 1;
+            p2 [ 1 ] = 0.0;
+            p2 [ 2 ] = 0.0;
+            p [ 0 ] = 1.0;
+            p [ 1 ] = 1.0;
+            p [ 2 ] = 0.0;
+            p3 [ 0 ] = 0;
+            p3 [ 1 ] = 0;
+            p3 [ 2 ] = 0.0;
+
+            p21 [ 0 ] = 0;
+            p21[ 1 ] = 1;
+            p21 [ 2 ] = 0.0;
+
+            points_list.Add( p2 );
+            points_list.Add( p );
+            points_list.Add( p3 );
+            points_list.Add( p21 );
+			points = points_list.ToArray();
+
+        }
+        */
 		public void getPointed(double width, double heighr, Plane plane, int div = 1)
 		{
 			if ( width <= 2 || heighr <= 0.1 )
@@ -51,7 +84,6 @@ namespace Star
 				}
 			}
 			points = points_list.ToArray();
-
 		}
 
 	
